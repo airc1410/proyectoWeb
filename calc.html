@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+        }
+        .calculator {
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+        }
+        #display {
+            width: 100%;
+            height: 60px;
+            font-size: 30px;
+            text-align: center; 
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            box-sizing: border-box;
+        }
+        .button {
+            width: 70px;
+            height: 70px;
+            font-size: 24px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; 
+            background: linear-gradient(to right, #00b4db, #0083b0); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            transform: scale(1.1); 
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+        }
+        .button[data-type="operator"] {
+            background: rgba(255, 255, 255, 0.7); 
+            color: black;
+        }
+        .row {
+            display: flex;
+            justify-content: center; 
+            flex-wrap: wrap;
+        }
+        .button.wide {
+            width: 145px; 
+        }
+        .button.special {
+            background: rgba(255, 255, 255, 0.7); 
+            color: black;
+        }
+        .spotify {
+            background: rgba(30, 215, 96, 0.8); 
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="row">
+        <button class="button utility" onclick="clearDisplay()">C</button>
+        <button class="button operator" onclick="appendToDisplay('/')">/</button>
+        <button class="button utility" onclick="deleteLast()">←</button>
+        <button class="button operator" onclick="appendToDisplay('*')">*</button>
+    </div>
+    <div class="row">
+        <button class="button number" onclick="appendToDisplay('7')">7</button>
+        <button class="button number" onclick="appendToDisplay('8')">8</button>
+        <button class="button number" onclick="appendToDisplay('9')">9</button>
+        <button class="button operator" onclick="appendToDisplay('-')">-</button>
+    </div>
+    <div class="row">
+        <button class="button number" onclick="appendToDisplay('4')">4</button>
+        <button class="button number" onclick="appendToDisplay('5')">5</button>
+        <button class="button number" onclick="appendToDisplay('6')">6</button>
+        <button class="button operator" onclick="appendToDisplay('+')">+</button>
+    </div>
+    <div class="row">
+        <button class="button number" onclick="appendToDisplay('1')">1</button>
+        <button class="button number" onclick="appendToDisplay('2')">2</button>
+        <button class="button number" onclick="appendToDisplay('3')">3</button>
+        <button class="button operator" onclick="calculateResult()">=</button>
+    </div>
+    <div class="row">
+        <button class="button number" onclick="appendToDisplay('0')">0</button> 
+        <button class="button number" onclick="appendToDisplay('.')">.</button>
+        <button class="button special" onclick="calculateSquareRoot()">√</button>
+        <button class="button special" onclick="calculateSquare()">x²</button>
+    </div>
+    <div class="row">
+        <button class="button special wide" onclick="checkEvenOdd()">Par/Impar</button>
+        <button class="button special wide" onclick="checkPrime()">Primo</button>
+    </div>
+    <div class="row" style="justify-content: center;">
+        <button class="button spotify wide" onclick="window.open('https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg?si=pl_cqtVLRHecIf0TAske8A', '_blank')">Spotify</button> <!-- Botón Spotify centrado -->
+    </div>
+</div>
+
+<script>
+    function appendToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function deleteLast() {
+        var display = document.getElementById('display').value;
+        document.getElementById('display').value = display.slice(0, -1);
+    }
+
+    function calculateResult() {
+        var display = document.getElementById('display').value;
+        try {
+            document.getElementById('display').value = eval(display);
+        } catch (error) {
+            document.getElementById('display').value = 'Error';
+        }
+    }
+
+    function calculateSquareRoot() {
+        var display = document.getElementById('display').value;
+        var result = Math.sqrt(parseFloat(display));
+        document.getElementById('display').value = result;
+    }
+
+    function calculateSquare() {
+        var display = document.getElementById('display').value;
+        var result = Math.pow(parseFloat(display), 2);
+        document.getElementById('display').value = result;
+    }
+
+    function checkEvenOdd() {
+        var display = document.getElementById('display').value;
+        var number = parseInt(display, 10);
+        if (isNaN(number)) {
+            document.getElementById('display').value = 'Error';
+            return;
+        }
+        document.getElementById('display').value = (number % 2 === 0) ? 'Par' : 'Impar';
+    }
+
+    function checkPrime() {
+        var display = document.getElementById('display').value;
+        var number = parseInt(display, 10);
+        if (isNaN(number) || number <= 1) {
+            document.getElementById('display').value = 'No es primo';
+            return;
+        }
+        for (var i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                document.getElementById('display').value = 'No es primo';
+                return;
+            }
+        }
+        document.getElementById('display').value = 'Es primo';
+    }
+</script>
+
+</body>
+</html>
