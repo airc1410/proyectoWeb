@@ -2,33 +2,39 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Minibuses - Transporte Eficiente</title>
+<title>Minibuses en La Paz - Transporte Eficiente</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
   color: #333;
 }
 header {
-  background-color: #4a90e2;
+  background-color: #D32F2F;
   color: white;
-  padding: 10px 0;
+  padding: 20px 0;
   text-align: center;
 }
 nav {
   display: flex;
-  justify-content: flex-start;
-  background: #2c3e50;
+  justify-content: space-between;
+  background: #1976D2;
+  padding: 0 20px;
+}
+.nav-links, .social-links {
+  display: flex;
 }
 nav a {
   color: white;
   padding: 14px 20px;
   text-decoration: none;
+  font-weight: bold;
 }
 nav a:hover {
-  background-color: #34495e;
+  background-color: #1565C0;
 }
 .carrusel {
   width: 100%;
@@ -38,126 +44,180 @@ nav a:hover {
 }
 .diapositivas {
   display: flex;
-  width: 200%;
+  width: 300%;
   height: 100%;
-  animation: animacionDiapositivas 8s infinite;
+  animation: animacionDiapositivas 15s infinite;
 }
 .diapositivas img {
-  width: 50%;
+  width: 33.33%;
   height: 100%;
   object-fit: cover;
 }
 @keyframes animacionDiapositivas {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-50%); }
+  0%, 30% { transform: translateX(0); }
+  33%, 63% { transform: translateX(-33.33%); }
+  66%, 96% { transform: translateX(-66.66%); }
+  100% { transform: translateX(0); }
 }
 .seccion {
   background-color: white;
   margin: 20px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .tituloSeccion {
-  color: #4a90e2;
+  color: #D32F2F;
   text-align: center;
+  font-size: 2em;
 }
 .contenido {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .cajaContenido {
-  background-color: #f9f9f9;
+  background-color: #FFECB3;
   color: #333;
-  width: 48%;
+  width: 45%;
   padding: 15px;
   margin: 10px 0;
   border-radius: 4px;
 }
 .botonMenu {
-  background-color: #4a90e2;
-  color: white;
+  background-color: #FFC107;
+  color: #333;
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: right;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.botonMenu:hover {
+  background-color: #FFA000;
 }
 footer {
-  background-color: #2c3e50;
+  background-color: #1976D2;
   color: white;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
+}
+.imagenDescarga {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+.textoDescarga, .textoSheets {
+  flex: 1;
+  padding-left: 20px;
+}
+.iframeContainer {
+  width: 45%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.social-icon {
+  color: white;
+  font-size: 24px;
+  margin-right: 15px;
 }
 </style>
 </head>
 <body>
 <div id="inicio">
   <header>
-    <h1>Minibuses - Transporte Eficiente</h1>
+    <h1>Minibuses en La Paz - Transporte Eficiente</h1>
   </header>
   <nav>
-    <div class="secciones">
+    <div class="nav-links">
       <a href="#modelos">Modelos</a>
       <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#sheets">Google Sheets</a>
+    </div>
+    <div class="social-links">
+      <a href="www.facebook.com"><i class="fab fa-facebook social-icon"></i></a>
+      <a href="www.twitter.com"><i class="fab fa-twitter social-icon"></i></a>
+      <a href="www.instagram.com"><i class="fab fa-instagram social-icon"></i></a>
     </div>
   </nav>
 </div>
 <div class="carrusel">
   <div class="diapositivas">
-    <img src="/api/placeholder/800/400" alt="Minibús moderno">
-    <img src="/api/placeholder/800/400" alt="Interior de minibús">
+    <img src="https://github.com/airc1410/proyectoWeb/blob/main/minibus.jpeg?raw=true" alt="Minibús en La Paz">
+    <img src="https://github.com/airc1410/proyectoWeb/blob/main/minibus2.jpeg?raw=true" alt="Trancadera">
+    <img src="https://github.com/airc1410/proyectoWeb/blob/main/minibus3.jpeg?raw=true" alt="Interior">
   </div>
 </div>
 
 <div id="modelos" class="seccion">
-  <h2 class="tituloSeccion">Nuestros Modelos de Minibuses</h2>
+  <h2 class="tituloSeccion">Minibuses en La Paz</h2>
   <div class="contenido">
     <div class="cajaContenido">
-      <h3>Minibús Urbano</h3>
-      <p>Perfecto para rutas cortas en la ciudad. Capacidad para 20 pasajeros, bajo consumo de combustible.</p>
+      <h3>Minis</h3>
+      <p>Los minibuses en la ciudad de La Paz son uno de los principales medios de transporte público, conocidos por su amplia cobertura y accesibilidad en casi todas las zonas urbanas y periurbanas. Estos vehículos son característicos por su capacidad de transportar entre 12 y 15 pasajeros, lo que los convierte en una opción flexible para transitar por las calles empinadas y angostas de la ciudad. Los minibuses suelen operar bajo rutas establecidas, pero también tienen cierta flexibilidad para desviarse según la demanda de los pasajeros. Aunque son valorados por su rapidez y frecuencia, a menudo se enfrentan a problemas de congestión vial, debido a su abundancia en las vías y a la falta de una regulación estricta en cuanto a paradas y horarios.</p>
     </div>
     <div class="cajaContenido">
-      <h3>Minibús Turístico</h3>
-      <p>Ideal para excursiones. Equipado con aire acondicionado, asientos reclinables y sistema de audio.</p>
+      <h3>Voceros</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ueJgnQFHnOE?si=UA_rrLjzIjlOEtin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
   <a href="#inicio"><button class="botonMenu">Menú</button></a>
 </div>
 
 <div id="servicios" class="seccion">
-  <h2 class="tituloSeccion">Servicios de Transporte</h2>
+  <h2 class="tituloSeccion">Rutas</h2>
   <div class="contenido">
     <div class="cajaContenido">
-      <h3>Alquiler de Minibuses</h3>
-      <p>Ofrecemos alquiler de minibuses para eventos, excursiones y transporte corporativo.</p>
+      <h3>Pagina de la alcaldia con las diferentes rutas</h3>
+      <iframe src="http://wsservicios.lapaz.bo/transportepublico/" width="100%" height="200" frameborder="0"></iframe>
     </div>
     <div class="cajaContenido">
-      <h3>Mantenimiento</h3>
-      <p>Servicio de mantenimiento y reparación para todos los modelos de minibuses.</p>
+      <h3>Diferentes lineas y sindicatos</h3>
+      <p>En La Paz, los minibuses operan a través de una amplia red de rutas que cubren casi todos los barrios de la ciudad, desde el centro hasta las zonas más alejadas. Cada ruta está asignada a uno de los muchos sindicatos de transporte que controlan el funcionamiento de los minibuses. Estos sindicatos agrupan a los propietarios y conductores, y cada uno administra varias rutas específicas. La diversidad de rutas y sindicatos permite una gran oferta de transporte, pero también genera una cierta competencia entre ellos. A menudo, los minibuses pertenecientes a diferentes sindicatos pueden recorrer trayectos similares, lo que a veces crea problemas de congestión o disputas por los pasajeros. A pesar de estas dificultades, el sistema sigue siendo fundamental para la movilidad de miles de paceños cada día.</p>
     </div>
   </div>
   <a href="#inicio"><button class="botonMenu">Menú</button></a>
 </div>
 
-<div id="contacto" class="seccion">
-  <h2 class="tituloSeccion">Contacto</h2>
+<div id="calculadora" class="seccion">
+  <h2 class="tituloSeccion">Calculadora de Costos</h2>
   <div class="contenido">
-    <div class="cajaContenido">
-      <h3>Información de Contacto</h3>
-      <p>Teléfono: 123-456-7890<br>Email: info@minibuses.com</p>
+    <a href="calc.html" download>
+      <img src="https://github.com/airc1410/proyectoWeb/blob/main/calculadora.gif?raw=true" alt="Icono de calculadora" class="imagenDescarga">
+    </a>
+    <div class="textoDescarga">
+      <h3>Descarga nuestra Calculadora de Costos</h3>
+      <p>Calcula tus gastos en minibus para cuando viajes con tus amigos o familiares!. Haz clic en la imagen para descargar nuestra calculadora personalizada.</p>
     </div>
-    <div class="cajaContenido">
-      <h3>Ubicación</h3>
-      <p>Calle Principal 123, Ciudad, País</p>
+  </div>
+  <a href="#inicio"><button class="botonMenu">Menú</button></a>
+</div>
+
+<div id="sheets" class="seccion">
+  <h2 class="tituloSeccion">Planifica tu Viaje con Google Sheets</h2>
+  <div class="contenido">
+    <div class="iframeContainer">
+      <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQPR7C7AHtUALkaJzfi8AlgEPHlKXffmeoqg1jBdIeiZeGGf3fgYDgQAfrMTrG4LQ/pubhtml?widget=true&amp;headers=false" width="100%" height="300" frameborder="0"></iframe>
+    </div>
+    <div class="textoSheets">
+      <h3>Organiza tu Itinerario</h3>
+      <p>Utiliza nuestra plantilla de Google Sheets para planificar tus rutas por La Paz. Incluye estimaciones de tiempo, costos y lugares turísticos a visitar.</p>
     </div>
   </div>
   <a href="#inicio"><button class="botonMenu">Menú</button></a>
 </div>
 
 <footer>
-  <div>Síguenos en redes sociales | © 2024 Minibuses. Todos los derechos reservados.</div>
+  
+    <a href="www.facebook.com"><i class="fab fa-facebook social-icon"></i></a>
+    <a href="www.twitter.com"><i class="fab fa-twitter social-icon"></i></a>
+    <a href="www.instagram.com"><i class="fab fa-instagram social-icon"></i></a>
+  
+  <div>| © 2024 Minibuses La Paz. Todos los derechos reservados. Augusto Romero |</div>
 </footer>
 
 </body>
